@@ -48,32 +48,24 @@ class App extends Component {
 
   render() {
     let persons = null;
-    let btnClass = "";
 
     if (this.state.showPersons) {
       persons = (
-        <div>
-        <Persons persons={this.state.persons}
-        clicked = {this.deletePersonHandler}
-        changed= {this.nameChangedHandler}
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangedHandler}
         />
-        </div>
       );
-      
-
-      btnClass = classes.Red;
     }
-
-    
 
     return (
       <div className={classes.App}>
-        <Cockpit />
-        {/* <h1>Hi, I'm a React App</h1>
-        <p className={assignedClasses.join(" ")}>This is really working!</p>
-        <button className={btnClass} onClick={this.togglePersonsHandler}>
-          Toggle Persons
-        </button> */}
+        <Cockpit
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonsHandler}
+        />
         {persons}
       </div>
     );
